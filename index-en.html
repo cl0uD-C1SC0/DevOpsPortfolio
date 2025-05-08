@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio DevOps - José</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <style>
+    /* Reset básico para eliminar margens e paddings padrões */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    /* Cor de fundo e estilo do corpo */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #1e1e2e;
+      color: #f8f8f2;
+      line-height: 1.6;
+      font-size: 18px;
+    }
+  
+    /* Header */
+    header {
+      background-color: #2a2a40;
+      padding: 2rem;
+      text-align: center;
+    }
+  
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+  
+    /* Container principal */
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+      overflow-x: hidden;
+      box-sizing: border-box;
+    }
+  
+    /* Sidebar */
+    .sidebar {
+      flex: 0 0 250px;
+      background-color: #2a2a40;
+      padding: 1rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+  
+    .sidebar img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+  
+    .sidebar a {
+      display: block;
+      margin: 0.5rem 0;
+      background-color: #4b4b6b;
+      color: #f8f8f2;
+      padding: 0.5rem;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+  
+    .sidebar a:hover {
+      background-color: #6f6fa9;
+    }
+  
+    /* Main content */
+    main {
+      flex: 1;
+      padding: 0 2rem;
+    }
+  
+    section {
+      margin-bottom: 3rem;
+    }
+  
+    section h2 {
+      border-bottom: 2px solid #4b4b6b;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #f8f8f2;
+    }
+  
+    /* Language switcher */
+    .language-switcher {
+      margin-top: 1rem;
+      text-align: right;
+    }
+  
+    .language-switcher span {
+      margin-right: 0.5rem;
+    }
+  
+    .language-switcher a {
+      padding: 0.3rem 0.7rem;
+      background-color: #4b4b6b;
+      color: #f8f8f2;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+  
+    /* Imagem de header */
+    .header-image {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      margin: 1rem 0 2rem 0;
+      border-radius: 12px;
+    }
+  
+    /* Carousel de projetos */
+    .project-carousel-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      overflow-x: hidden;
+    }
+  
+    .project-container {
+      display: flex;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+  
+    .project-item {
+      flex: 0 0 150px;
+      text-align: center;
+    }
+  
+    .project-image {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+  
+    .project-image:hover {
+      transform: scale(1.05);
+    }
+  
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 1.5rem;
+      border: none;
+      padding: 0.5rem;
+      cursor: pointer;
+      z-index: 10;
+    }
+  
+    .carousel-left {
+      left: 0;
+    }
+  
+    .carousel-right {
+      right: 0;
+    }
+  
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      will-change: transform;
+    }
+  
+    .carousel-track img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+  
+    /* Estilos para a lista de blog */
+    #blog ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 0;
+    }
+  
+    #blog li {
+      margin-bottom: 1.5rem;
+    }
+  
+    #blog a {
+      color: #f8f8f2; /* Cor clara e neutra */
+      text-decoration: none;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease, transform 0.3s ease, letter-spacing 0.3s ease;
+      display: inline-block;
+      padding-bottom: 2px;
+    }
+  
+    #blog a:hover {
+      color: #007aff; /* Cor vibrante ao passar o mouse */
+      transform: translateY(-2px);
+      letter-spacing: 0.5px;
+    }
+  
+    #blog a:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.5); /* Foco com brilho suave */
+    }
+  
+    #blog h2 {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #f8f8f2;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #4b4b6b;
+      padding-bottom: 8px;
+    }
+  
+    /* Reset para todos os elementos */
+    * {
+      box-sizing: border-box;
+    }
+  
+    /* Evitar overflow horizontal */
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    #blog ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    #blog li {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        position: relative;  /* Necessário para a caixa de promoção se posicionar dentro do item */
+    }
+
+    #blog a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 500;
+        display: inline-block;
+    }
+
+    .promo-box {
+        background-color: #ff6a00; /* Cor mais chamativa */
+        color: white;
+        font-size: 0.85rem;
+        padding: 0.3rem 1rem;
+        border-radius: 15px;
+        margin-left: 0.5rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+        vertical-align: middle;
+        transition: background-color 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .promo-box::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255, 165, 0, 0.7), rgba(255, 0, 0, 0.6), rgba(255, 255, 0, 0.4));
+        opacity: 0.3;
+        z-index: -1;
+        animation: fireAnimation 1.5s infinite alternate;
+    }
+
+    /* Animação para o efeito de fogo */
+    @keyframes fireAnimation {
+        0% {
+            transform: scale(1) rotate(0deg);
+            opacity: 0.3;
+        }
+        25% {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 0.5;
+        }
+        50% {
+            transform: scale(1) rotate(-5deg);
+            opacity: 0.3;
+        }
+        75% {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 0.5;
+        }
+        100% {
+            transform: scale(1) rotate(0deg);
+            opacity: 0.3;
+        }
+    }
+    #cert img {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 8px;
+        }
+
+        #cert img:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 2;
+        }
+
+    .emoji {
+        content: \01f1e7\01f1f7;
+    }
+
+  </style>
+  
+</head>
+<body>
+  <header>
+    <h1>José Silva</h1>
+    <h2>DevOps Engineer | Instructor</h2>
+    <div class="language-switcher">
+      <span>Language/Idioma:</span>
+      <a href="index.html"><img src="img/bra.png" width="25"></a>
+    </div>
+  </header>
+  <div class="container">
+    <aside class="sidebar">
+      <img src="img/perfil.png" alt="Foto de perfil">
+      <a href="https://www.linkedin.com/in/seu-perfil" target="_blank">LinkedIn</a>
+      <a href="cv-jose.pdf" download>Download resume</a>
+    </aside>
+    <main>
+      <section>
+        <img class="header-image" src="img/banner-en.png" alt="Banner DevOps">
+      </section>
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-carousel-wrapper">
+          <button class="carousel-button carousel-left" onclick="scrollCarousel(-1)">&#60;</button>
+          <div class="project-container" id="projectCarousel">
+            <!-- Exemplo de 6 projetos (adicione mais conforme necessário) -->
+            <div class="project-item">
+              <a href="https://github.com/seuusuario/projeto1" target="_blank">
+                <img class="project-image" src="img/athenas.png" alt="Projeto 1">
+              </a>
+            </div>
+            <div class="project-item">
+              <a href="https://github.com/seuusuario/projeto2" target="_blank">
+                <img class="project-image" src="img/HPA.png" alt="Projeto 2">
+              </a>
+            </div>
+            <div class="project-item">
+              <a href="https://github.com/seuusuario/projeto3" target="_blank">
+                <img class="project-image" src="img/MinikubeOfFrying.png" alt="Projeto 3">
+              </a>
+            </div>
+            <div class="project-item">
+              <a href="https://github.com/seuusuario/projeto4" target="_blank">
+                <img class="project-image" src="img/athenas.png" alt="Projeto 4">
+              </a>
+            </div>
+            <div class="project-item">
+              <a href="https://github.com/seuusuario/projeto5" target="_blank">
+                <img class="project-image" src="img/HPA.png" alt="Projeto 5">
+              </a>
+            </div>
+            <div class="project-item">
+              <a href="https://github.com/seuusuario/projeto6" target="_blank">
+                <img class="project-image" src="img/MinikubeOfFrying.png" alt="Projeto 6">
+              </a>
+            </div>
+          </div>
+          <button class="carousel-button carousel-right" onclick="scrollCarousel(1)">&#62;</button>
+        </div>
+      </section>
+      <section id="experience">
+        <h2>About me</h2>
+        <p>I have been working with DevOps and Cloud Computing for almost 3 years, focusing on automation, infrastructure as code and good practices in CI/CD, security and observability. I was national runner-up in WorldSkills (Cloud AWS modality), representing the state of São Paulo. I provided technical training for companies and trained professionals in DevOps, Cloud and Monitoring. Conducted complex migrations to Google Cloud, applied optimizations that generated cost savings of more than R$30 thousand and implemented end-to-end pipelines with Terraform, Docker, Kubernetes, ArgoCD, Jenkins, and native CI/CD on AWS, GCP, and Azure.
+          I have AWS, Google Cloud and GitOps certifications.</p>
+      </section>
+      <section id="blog">
+        <h2>Recommended by me</h2>
+        <ul>
+            <li class="blog-item">
+                <a href="blog/tutorial-docker.html">🔥DevOps Hands-On: Da Teoria à Prática</a>
+                <span class="promo-box">Most viewed</span>
+                <span class="promo-box">Portuguese Course</span>
+              </li>   
+          <li><a href="blog/gitops-com-argocd.html">🐦‍🔥GitOps with ArgoCD</a></li>
+          <li><a href="blog/monitoramento-com-prometheus-grafana.html">🐦‍🔥Monitoramento with Prometheus and Grafana</a></li>
+        </ul>
+      </section>
+      <section id="cert">
+        <h2>Certifications</h2>
+        <div align="center">
+            <img src="https://templates.images.credential.net/16590181582433100721069374350922.png" width="100" hspace="10">
+            <img src="https://templates.images.credential.net/16590187933301617801540872729153.png" width="100">
+            <img src="https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png" width="100" hspace="10">
+            <img src="https://images.credly.com/size/340x340/images/e7bf6727-22cf-45d6-ad9c-76ab57c3f11b/image.png" width="100" hspace="10">
+            <img src="https://images.credly.com/size/340x340/images/6f4212c6-80e6-4819-833d-a652b0feaabb/blob" width="100">
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function scrollCarousel(direction) {
+        const container = document.getElementById("projectCarousel");
+        const scrollAmount = 160; // largura + gap
+        container.scrollBy({
+        left: scrollAmount * direction,
+        behavior: "smooth"
+        });
+    }
+  </script>
+</body>
+</html>
