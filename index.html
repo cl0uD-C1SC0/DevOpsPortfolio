@@ -1,468 +1,419 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfólio DevOps - José</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
   <style>
-    /* Reset básico para eliminar margens e paddings padrões */
+    /* Reset básico */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-  
-    /* Cor de fundo e estilo do corpo */
+
     body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #1e1e2e;
-      color: #f8f8f2;
+      font-family: 'Fira Code', monospace;
+      background-color: #0f0f1a;
+      color: #f0f0f0;
       line-height: 1.6;
       font-size: 18px;
-      overflow: hidden;
-      background-image: url("img/abstract-light-painting-dark.jpg");
+      background-image: url("img/z16.jpg");
       background-repeat: no-repeat;
-      background-size: 500%;
-      
-    }
-  
-    /* Header */
-    header {
-      background-color: #2a2a40;
-      padding: 2rem;
-      text-align: center;
-      background-image: url("img/teste3.jpg");
-      /* background-size: ; AJUSTAR TAMANHO AQUI CHATGPT... */
+      background-size: cover;
       background-repeat: no-repeat;
-      border-style: outset;
-    }
-  
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      
+      height: 100vh;
+      width: 100vw;
+      background-attachment: fixed; /* Para fixar a imagem no fundo */
     }
 
-    /* Container principal */
-    .container {
-      display: flex;
-      flex-wrap: wrap;
+    header {
+      background-image: url("img/header-abstract.jpg");
+      background-size: cover;
+      background-position: center;
       padding: 2rem;
-      max-width: 1200px;
-      margin: auto;
-      overflow-x: hidden;
-      box-sizing: border-box;
-      
-    }
-  
-    /* Sidebar */
-    .sidebar {
-      flex: 0 0 250px;
-      background-color: #2a2a40;
-      padding: 1rem;
-      border-radius: 12px;
       text-align: center;
     }
-  
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header h2 {
+      font-size: 1.5rem;
+      color: #00bcd4;
+    }
+
+    .language-switcher {
+      margin-top: 1rem;
+      text-align: right;
+    }
+
+    .language-switcher a img {
+      width: 25px;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* <-- Centraliza o conteúdo na horizontal */
+        align-items: center;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: auto;
+        gap: 2rem;
+    }
+
+    .sidebar {
+        flex: 0 0 auto; /* Impede que estique ou encolha */
+        
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        border-color: transparent;
+    }
+
     .sidebar img {
       width: 100px;
       height: 100px;
       border-radius: 50%;
       margin-bottom: 1rem;
     }
-  
+
     .sidebar a {
       display: block;
       margin: 0.5rem 0;
-      background-color: #ffffff;
-      color: #000000;
+      background-color: #000000;
+      color: #ffffff;
       padding: 0.5rem;
       text-decoration: none;
       border-radius: 8px;
       transition: background 0.3s;
-      
     }
-  
+
     .sidebar a:hover {
-      background-color: #d1ae1e;
-      text-decoration: white;
-      
+      background-color: #a75100;
     }
-  
-    /* Main content */
+
     main {
       flex: 1;
       padding: 0 2rem;
-      
     }
-  
+
     section {
       margin-bottom: 3rem;
     }
-  
+
     section h2 {
-      border-bottom: 2px solid #4b4b6b;
+      border-bottom: 2px solid #00bcd4;
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
-      font-family: 'Helvetica Neue', sans-serif;
-      font-weight: 700;
       font-size: 1.8rem;
-      color: #f8f8f2;
-      
+      text-align: center;
     }
-  
-    /* Language switcher */
-    .language-switcher {
-      margin-top: 1rem;
-      text-align: right;
-    }
-  
-    .language-switcher span {
-      margin-right: 0.5rem;
-    }
-  
-    .language-switcher a {
-      padding: 0.3rem 0.7rem;
-      background-color: #000000;
-      color: #f8f8f2;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-  
-    /* Imagem de header */
+
     .header-image {
       width: 100%;
       max-height: 300px;
       object-fit: cover;
       margin: 1rem 0 2rem 0;
       border-radius: 12px;
-      border-style: outset;
     }
-  
-    /* Carousel de projetos */
+
     .project-carousel-wrapper {
       position: relative;
       width: 100%;
       overflow: hidden;
-      overflow-x: hidden;
-      
     }
-  
+
     .project-container {
       display: flex;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
+      overflow-x: auto;
       gap: 1rem;
       padding: 1rem 0;
-      
     }
-  
+
     .project-item {
       flex: 0 0 150px;
       text-align: center;
     }
-  
+
     .project-image {
       width: 100%;
       height: 150px;
       object-fit: cover;
       border-radius: 8px;
       transition: transform 0.3s;
-      border-style: outset;
     }
-  
+
     .project-image:hover {
       transform: scale(1.05);
     }
-  
-    .carousel-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      font-size: 1.5rem;
-      border: none;
-      padding: 0.5rem;
-      cursor: pointer;
-      z-index: 10;
+
+    .carousel-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        margin: 20px 0;
+        width: 100%; /* Garante que não ultrapasse */
+        max-width: 100%; /* Protege contra overflow */
+        min-width: 0;
     }
-  
-    .carousel-left {
-      left: 0;
+
+    .carousel {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* IE 10+ */
+        max-width: 100%;
+        width: 100%;
+        flex-wrap: nowrap;
     }
-  
-    .carousel-right {
-      right: 0;
+
+    .carousel::-webkit-scrollbar {
+        display: none; /* Chrome, Safari */
     }
-  
-    .carousel-container {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      max-width: 100%;
-      margin: 0 auto;
-    }
-  
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      will-change: transform;
-    }
-  
-    .carousel-track img {
+
+    .carousel-item {
+      flex: 0 0 auto;
       width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      flex-shrink: 0;
+      margin-right: 20px;
+      text-align: center;
+      background-color: #1f1f1f;
+      border-radius: 12px;
+      padding: 10px;
+      transition: transform 0.3s ease;
     }
-  
-    /* Estilos para a lista de blog */
+
+    .carousel-item img {
+        width: 100%;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0,0,0,0.5);
+        color: white;
+        border: none;
+        font-size: 2rem;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 10;
+        border-radius: 50%;
+        transition: background 0.2s;
+    }
+
+    .carousel-btn:hover {
+        background-color: rgba(255,255,255,0.2);
+    }
+
+    .carousel-btn.left {
+        left: 10px;
+    }
+
+    .carousel-btn.right {
+        right: 10px;
+    }
+
     #blog ul {
       list-style-type: none;
       padding-left: 0;
       margin-top: 0;
     }
-  
+
     #blog li {
       margin-bottom: 1.5rem;
     }
-  
+
     #blog a {
-      color: #f8f8f2; /* Cor clara e neutra */
+      color: #00bcd4;
       text-decoration: none;
-      font-family: 'Helvetica Neue', sans-serif;
       font-weight: 500;
       font-size: 1.1rem;
-      transition: color 0.3s ease, transform 0.3s ease, letter-spacing 0.3s ease;
-      display: inline-block;
-      padding-bottom: 2px;
+      transition: color 0.3s ease;
     }
-  
+
     #blog a:hover {
-      color: #007aff; /* Cor vibrante ao passar o mouse */
-      transform: translateY(-2px);
-      letter-spacing: 0.5px;
-    }
-  
-    #blog a:focus {
-      outline: none;
-      box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.5); /* Foco com brilho suave */
-    }
-  
-    #blog h2 {
-      font-family: 'Helvetica Neue', sans-serif;
-      font-weight: 700;
-      font-size: 1.8rem;
-      color: #f8f8f2;
-      margin-bottom: 1.5rem;
-      border-bottom: 2px solid #4b4b6b;
-      padding-bottom: 8px;
-    }
-  
-    /* Reset para todos os elementos */
-    * {
-      box-sizing: border-box;
-    }
-  
-    /* Evitar overflow horizontal */
-    html, body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-    }
-
-    #blog ul {
-        padding: 0;
-        list-style: none;
-    }
-
-    #blog li {
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
-        position: relative;  /* Necessário para a caixa de promoção se posicionar dentro do item */
-    }
-
-    #blog a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: 500;
-        display: inline-block;
+      color: #0097a7;
     }
 
     .promo-box {
-        background-color: #ff6a00; /* Cor mais chamativa */
-        color: white;
-        font-size: 0.85rem;
-        padding: 0.3rem 1rem;
-        border-radius: 15px;
-        margin-left: 0.5rem;
-        font-weight: bold;
-        letter-spacing: 1px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        display: inline-block;
-        vertical-align: middle;
-        transition: background-color 0.3s ease;
-        position: relative;
-        overflow: hidden;
+      background-color: #ff6a00;
+      color: white;
+      font-size: 0.85rem;
+      padding: 0.3rem 1rem;
+      border-radius: 15px;
+      margin-left: 0.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      display: inline-block;
     }
 
-    .promo-box::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle, rgba(255, 165, 0, 0.7), rgba(255, 0, 0, 0.6), rgba(255, 255, 0, 0.4));
-        opacity: 0.3;
-        z-index: -1;
-        animation: fireAnimation 1.5s infinite alternate;
-    }
-
-    /* Animação para o efeito de fogo */
-    @keyframes fireAnimation {
-        0% {
-            transform: scale(1) rotate(0deg);
-            opacity: 0.3;
-        }
-        25% {
-            transform: scale(1.1) rotate(5deg);
-            opacity: 0.5;
-        }
-        50% {
-            transform: scale(1) rotate(-5deg);
-            opacity: 0.3;
-        }
-        75% {
-            transform: scale(1.1) rotate(5deg);
-            opacity: 0.5;
-        }
-        100% {
-            transform: scale(1) rotate(0deg);
-            opacity: 0.3;
-        }
-    }
     #cert img {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border-radius: 8px;
-        }
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 8px;
+    }
 
-        #cert img:hover {
-        transform: scale(1.1);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        z-index: 2;
-        }
+    #cert img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+    }
 
-    .emoji {
-        content: \01f1e7\01f1f7;
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      main {
+        padding: 0;
+      }
+
+      .sidebar {
+        margin-bottom: 2rem;
+      }
     }
   </style>
-
-  
 </head>
-<body> 
-    <header>
-      <h1>José Silva</h1>
-      <h2>Engenheiro DevOps | Instrutor</h2>
-      <div class="language-switcher">
-        <span>Language/Idioma:</span>
-        <a href="index-en.html"><img src="img/eua.png" width="25"></a>
-      </div>
-    </header>
-    <div class="container">
-      <aside class="sidebar">
-        <img src="img/Eu3.png" alt="Foto de perfil">
-        <a href="https://www.linkedin.com/in/seu-perfil" target="_blank">LinkedIn</a>
-        <a href="cv-jose.pdf" download>Download CV</a>
-      </aside>
-      <main>
-        <section>
-          <img class="header-image" src="img/banner-devops.png" alt="Banner DevOps">
-        </section>
-        <section id="projects">
-          <h2>Projetos</h2>
-          <div class="project-carousel-wrapper">
-            <button class="carousel-button carousel-left" onclick="scrollCarousel(-1)">&#60;</button>
-            <div class="project-container" id="projectCarousel">
-              <!-- Exemplo de 6 projetos (adicione mais conforme necessário) -->
-              <div class="project-item">
-                <a href="https://github.com/seuusuario/projeto1" target="_blank">
-                  <img class="project-image" src="img/athenas.png" alt="Projeto 1">
-                </a>
-              </div>
-              <div class="project-item">
-                <a href="https://github.com/seuusuario/projeto2" target="_blank">
-                  <img class="project-image" src="img/HPA.png" alt="Projeto 2">
-                </a>
-              </div>
-              <div class="project-item">
-                <a href="https://github.com/seuusuario/projeto3" target="_blank">
-                  <img class="project-image" src="img/MinikubeOfFrying.png" alt="Projeto 3">
-                </a>
-              </div>
-              <div class="project-item">
-                <a href="https://github.com/seuusuario/projeto4" target="_blank">
-                  <img class="project-image" src="img/athenas.png" alt="Projeto 4">
-                </a>
-              </div>
-              <div class="project-item">
-                <a href="https://github.com/seuusuario/projeto5" target="_blank">
-                  <img class="project-image" src="img/HPA.png" alt="Projeto 5">
-                </a>
-              </div>
-              <div class="project-item">
-                <a href="https://github.com/seuusuario/projeto6" target="_blank">
-                  <img class="project-image" src="img/MinikubeOfFrying.png" alt="Projeto 6">
-                </a>
-              </div>
-            </div>
-            <button class="carousel-button carousel-right" onclick="scrollCarousel(1)">&#62;</button>
-          </div>
-        </section>
-        <section id="experience">
-          <h2>Resumo</h2>
-          <p>Atuo com DevOps e Cloud Computing há quase 3 anos, com foco em automação, infraestrutura como código e boas práticas de CI/CD, segurança e observabilidade. Fui vice-campeão nacional no WorldSkills (modalidade Cloud AWS), representando o estado de São Paulo. Ministrei treinamentos técnicos para empresas e formei profissionais em DevOps, Nuvem e Monitoramento. Conduzi migrações complexas para Google Cloud, apliquei otimizações que geraram redução de custos superiores a R$30 mil e implementei pipelines completos com Terraform, Docker, Kubernetes, ArgoCD, Jenkins e CI/CD nativo em AWS, GCP e Azure.
-              Tenho certificações AWS, Google Cloud e GitOps.</p>
-        </section>
-        <section id="blog">
-          <h2>Recomendados por mim</h2>
-          <ul>
-              <li class="blog-item">
-                  <a href="blog/tutorial-docker.html">🔥DevOps Hands-On: Da Teoria à Prática</a>
-                  <span class="promo-box">Mais Acessado</span>
-                  <span class="promo-box">Curso</span>
-                </li>   
-            <li><a href="blog/gitops-com-argocd.html">🐦‍🔥GitOps com ArgoCD</a></li>
-            <li><a href="blog/monitoramento-com-prometheus-grafana.html">🐦‍🔥Monitoramento com Prometheus e Grafana</a></li>
-          </ul>
-        </section>
-        <section id="cert">
-          <h2>Certificações</h2>
-          <div align="center">
-              <img src="https://templates.images.credential.net/16590181582433100721069374350922.png" width="100" hspace="10">
-              <img src="https://templates.images.credential.net/16590187933301617801540872729153.png" width="100">
-              <img src="https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png" width="100" hspace="10">
-              <img src="https://images.credly.com/size/340x340/images/e7bf6727-22cf-45d6-ad9c-76ab57c3f11b/image.png" width="100" hspace="10">
-              <img src="https://images.credly.com/size/340x340/images/6f4212c6-80e6-4819-833d-a652b0feaabb/blob" width="100">
-          </div>
-        </section>
-      </main>
+<body>
+  <header>
+    <h1>José Silva</h1>
+    <h2>Engenheiro DevOps | Instrutor</h2>
+    <div class="language-switcher">
+      <span>Idioma:</span>
+      <a href="index-en.html"><img src="img/eua.png" alt="English"></a>
     </div>
+  </header>
+  <div class="container">
+    <aside class="sidebar">
+      <img src="img/Eu02.png" alt="Foto de perfil">
+      <a href="https://www.linkedin.com/in/seu-perfil" target="_blank">LinkedIn</a>
+      <a href="cv-jose.pdf" download>Download CV</a>
+    </aside>
+    <main>
+      <section>
+        <img class="header-image" src="img/banner-devops.png" alt="Banner DevOps">
+      </section>
+      <section id="projects">
+        <h2>Projetos principais</h2>
+        <div class="carousel-wrapper">
+          <!-- <button class="carousel-btn left" onclick="scrollCarousel(-1)">&#10094;</button> -->
+          
+          <div class="carousel" id="projectCarousel">
+            <!-- Replique esse bloco para adicionar mais projetos -->
+            <div class="carousel-item">
+              <img src="img/project/HPA.png" alt="Projeto 1">
+              <p>Hyundai HPA</p>
+            </div>
+            <div class="carousel-item">
+              <img src="img/project/MinikubeOfFrying.png" alt="Projeto 2">
+              <p>Minikube of Frying</p>
+            </div>
+            <div class="carousel-item">
+              <img src="img/project/BannerJamByOwn.png" alt="Projeto 3">
+              <p>AWS JamByOwn</p><br>
+              
+            </div>
+            <div class="carousel-item">
+              <img src="img/project/embreve.png" alt="Projeto 4">
+              <p>Em construção</p>
+            </div>
+            <div class="carousel-item">
+              <img src="img/project/embreve.png" alt="Projeto 5">
+              <p>Em construção</p>
+            </div>
+            <!-- Adicione mais blocos conforme necessário -->
+          </div>
+      
+          <!-- <button class="carousel-btn right" onclick="scrollCarousel(1)">&#10095;</button> -->
+        </div>
+      </section>
+      <section id="experience">
+        <h2>Resumo</h2>
+        <p>Atuo com DevOps e Cloud Computing há quase 3 anos, com foco em automação, infraestrutura como código e boas práticas de CI/CD, segurança e observabilidade. Fui vice-campeão nacional no WorldSkills (modalidade Cloud AWS), representando o estado de São Paulo. Ministrei treinamentos técnicos para empresas e formei profissionais em DevOps, Nuvem e Monitoramento. Conduzi migrações complexas para Google Cloud, apliquei otimizações que geraram redução de custos superiores a R$30 mil e implementei pipelines completos com Terraform, Docker, Kubernetes, ArgoCD, Jenkins e CI/CD nativo em AWS, GCP e Azure. Tenho certificações AWS, Google Cloud e GitOps.</p>
+      </section>
+      <section id="blog">
+        <h2>Recomendados por mim</h2>
+        <ul>
+          <li>
+            <a href="blog/tutorial-docker.html">🔥DevOps Hands-On: Da Teoria à Prática</a>
+            <span class="promo-box">Mais Acessado</span>
+          </li>
+        </ul>
+      </section>
 
-    <script>
-      function scrollCarousel(direction) {
-          const container = document.getElementById("projectCarousel");
-          const scrollAmount = 160; // largura + gap
-          container.scrollBy({
-          left: scrollAmount * direction,
-          behavior: "smooth"
-          });
-      }
-    </script>
+      <section id="cert">
+        <h2>Certificações</h2>
+        <div class="project-container">
+          
+          <div class="project-item">
+            <img src="https://templates.images.credential.net/16590181582433100721069374350922.png" alt="Certificação AWS" width="150" height="150">
+            <p>Google Cloud Professional Cloud Architect</p>
+          </div>
+          <div class="project-item">
+            <img src="https://templates.images.credential.net/16590187933301617801540872729153.png" alt="Certificação GCP" width="150" height="150">
+            <p>Google Cloud Associate Cloud Engineer</p>
+          </div>
+          <div class="project-item">
+            <img src="https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png" alt="Certificação Linux" width="150" height="150">
+            <p>AWS Cloud Practitioner</p>
+          </div>
+          <div class="project-item">
+            <img src="https://images.credly.com/size/340x340/images/e7bf6727-22cf-45d6-ad9c-76ab57c3f11b/image.png" alt="Certificação GitOps" width="150" height="150">
+            <p>AWS Academy Verifed Educataor</p>
+          </div>
+          <div class="project-item">
+            <img src="https://images.credly.com/images/6f4212c6-80e6-4819-833d-a652b0feaabb/blob" alt="Certificação GitOps" width="150" height="150">
+            <p>GitOps Certified</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    ScrollReveal().reveal('section', {
+      origin: 'bottom',
+      distance: '50px',
+      duration: 1000,
+      easing: 'ease-in-out',
+      interval: 200
+    });
+  
+    // Exemplo: Animação para imagens específicas
+    ScrollReveal().reveal('.carousel-item', {
+      origin: 'left',
+      distance: '100px',
+      duration: 1200,
+      easing: 'ease-in-out',
+      interval: 150
+    });
+  
+    ScrollReveal().reveal('.sidebar', {
+      origin: 'right',
+      distance: '80px',
+      duration: 1000
+    });
+  </script>
+  
+  <script>
+    function scrollCarousel(direction) {
+      const carousel = document.getElementById('projectCarousel');
+      const scrollAmount = 220; // Ajuste conforme largura dos itens
+      carousel.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  </script>  
 </body>
 </html>
+ 
