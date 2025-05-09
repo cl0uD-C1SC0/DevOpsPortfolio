@@ -1,122 +1,117 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfólio DevOps - José</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
   <style>
-    /* Reset básico para eliminar margens e paddings padrões */
+    /* Reset básico */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-  
-    /* Cor de fundo e estilo do corpo */
+
     body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #1e1e2e;
-      color: #f8f8f2;
+      font-family: 'Fira Code', monospace;
+      background-color: #0f0f1a;
+      color: #f0f0f0;
       line-height: 1.6;
       font-size: 18px;
+      background-image: url("img/z16.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100vh;
+      width: 100vw;
+      background-attachment: fixed;
     }
-  
-    /* Header */
+
     header {
-      background-color: #2a2a40;
+      background-image: url("img/header-abstract.jpg");
+      background-size: cover;
+      background-position: center;
       padding: 2rem;
       text-align: center;
     }
-  
+
     header h1 {
-      margin: 0;
       font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
-  
-    /* Container principal */
+
+    header h2 {
+      font-size: 1.5rem;
+      color: #ffffff;
+    }
+
+    .language-switcher {
+      margin-top: 1rem;
+      text-align: right;
+    }
+
+    .language-switcher a img {
+      width: 25px;
+    }
+
     .container {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 2rem;
-      max-width: 1200px;
-      margin: auto;
-      overflow-x: hidden;
-      box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: auto;
+        gap: 2rem;
     }
-  
-    /* Sidebar */
+
     .sidebar {
-      flex: 0 0 250px;
-      background-color: #2a2a40;
-      padding: 1rem;
-      border-radius: 12px;
-      text-align: center;
+        flex: 0 0 auto;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        border-color: transparent;
     }
-  
+
     .sidebar img {
-      width: 100px;
-      height: 100px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       margin-bottom: 1rem;
     }
-  
+
     .sidebar a {
       display: block;
       margin: 0.5rem 0;
-      background-color: #4b4b6b;
-      color: #f8f8f2;
+      background-color: #000000;
+      color: #ffffff;
       padding: 0.5rem;
       text-decoration: none;
       border-radius: 8px;
       transition: background 0.3s;
     }
-  
+
     .sidebar a:hover {
-      background-color: #6f6fa9;
+      background-color: #a75100;
     }
-  
-    /* Main content */
+
     main {
       flex: 1;
       padding: 0 2rem;
     }
-  
+
     section {
       margin-bottom: 3rem;
     }
-  
+
     section h2 {
-      border-bottom: 2px solid #4b4b6b;
+      border-bottom: 2px solid #00bcd4;
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
-      font-family: 'Helvetica Neue', sans-serif;
-      font-weight: 700;
       font-size: 1.8rem;
-      color: #f8f8f2;
+      text-align: center;
     }
-  
-    /* Language switcher */
-    .language-switcher {
-      margin-top: 1rem;
-      text-align: right;
-    }
-  
-    .language-switcher span {
-      margin-right: 0.5rem;
-    }
-  
-    .language-switcher a {
-      padding: 0.3rem 0.7rem;
-      background-color: #4b4b6b;
-      color: #f8f8f2;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-  
-    /* Imagem de header */
+
     .header-image {
       width: 100%;
       max-height: 300px;
@@ -124,240 +119,207 @@
       margin: 1rem 0 2rem 0;
       border-radius: 12px;
     }
-  
-    /* Carousel de projetos */
-    .project-carousel-wrapper {
+
+    .carousel-wrapper {
       position: relative;
-      width: 100%;
-      overflow: hidden;
-      overflow-x: hidden;
-    }
-  
-    .project-container {
       display: flex;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-      gap: 1rem;
-      padding: 1rem 0;
-    }
-  
-    .project-item {
-      flex: 0 0 150px;
-      text-align: center;
-    }
-  
-    .project-image {
+      align-items: center;
+      overflow: hidden;
+      margin: 20px 0;
       width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 8px;
-      transition: transform 0.3s;
+      max-width: 100%;
+      min-width: 0;
     }
-  
-    .project-image:hover {
-      transform: scale(1.05);
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      max-width: 100%;
+      width: 100%;
+      flex-wrap: nowrap;
     }
-  
-    .carousel-button {
+
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-item {
+      flex: 0 0 auto;
+      width: 200px;
+      margin-right: 20px;
+      text-align: center;
+      background-color: #1f1f1f;
+      border-radius: 12px;
+      padding: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
+    .carousel-item:hover {
+        transform: scale(1.05);
+    }
+
+    .carousel-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0,0,0,0.5);
       color: white;
-      font-size: 1.5rem;
       border: none;
-      padding: 0.5rem;
+      font-size: 2rem;
+      padding: 10px;
       cursor: pointer;
       z-index: 10;
+      border-radius: 50%;
+      transition: background 0.2s;
     }
-  
-    .carousel-left {
-      left: 0;
+
+    .carousel-btn:hover {
+      background-color: rgba(255,255,255,0.2);
     }
-  
-    .carousel-right {
-      right: 0;
+
+    .carousel-btn.left {
+      left: 10px;
     }
-  
-    .carousel-container {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      max-width: 100%;
-      margin: 0 auto;
+
+    .carousel-btn.right {
+      right: 10px;
     }
-  
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      will-change: transform;
-    }
-  
-    .carousel-track img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      flex-shrink: 0;
-    }
-  
-    /* Estilos para a lista de blog */
+
     #blog ul {
       list-style-type: none;
       padding-left: 0;
       margin-top: 0;
     }
-  
+
     #blog li {
       margin-bottom: 1.5rem;
     }
-  
+
     #blog a {
-      color: #f8f8f2; /* Cor clara e neutra */
+      color: #00bcd4;
       text-decoration: none;
-      font-family: 'Helvetica Neue', sans-serif;
       font-weight: 500;
       font-size: 1.1rem;
-      transition: color 0.3s ease, transform 0.3s ease, letter-spacing 0.3s ease;
-      display: inline-block;
-      padding-bottom: 2px;
+      transition: color 0.3s ease;
     }
-  
+
     #blog a:hover {
-      color: #007aff; /* Cor vibrante ao passar o mouse */
-      transform: translateY(-2px);
-      letter-spacing: 0.5px;
-    }
-  
-    #blog a:focus {
-      outline: none;
-      box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.5); /* Foco com brilho suave */
-    }
-  
-    #blog h2 {
-      font-family: 'Helvetica Neue', sans-serif;
-      font-weight: 700;
-      font-size: 1.8rem;
-      color: #f8f8f2;
-      margin-bottom: 1.5rem;
-      border-bottom: 2px solid #4b4b6b;
-      padding-bottom: 8px;
-    }
-  
-    /* Reset para todos os elementos */
-    * {
-      box-sizing: border-box;
-    }
-  
-    /* Evitar overflow horizontal */
-    html, body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-    }
-
-    #blog ul {
-        padding: 0;
-        list-style: none;
-    }
-
-    #blog li {
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
-        position: relative;  /* Necessário para a caixa de promoção se posicionar dentro do item */
-    }
-
-    #blog a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: 500;
-        display: inline-block;
+      color: #0097a7;
     }
 
     .promo-box {
-        background-color: #ff6a00; /* Cor mais chamativa */
-        color: white;
-        font-size: 0.85rem;
-        padding: 0.3rem 1rem;
-        border-radius: 15px;
-        margin-left: 0.5rem;
-        font-weight: bold;
-        letter-spacing: 1px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        display: inline-block;
-        vertical-align: middle;
-        transition: background-color 0.3s ease;
-        position: relative;
-        overflow: hidden;
+      background-color: #ff6a00;
+      color: white;
+      font-size: 0.85rem;
+      padding: 0.3rem 1rem;
+      border-radius: 15px;
+      margin-left: 0.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      display: inline-block;
     }
 
-    .promo-box::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle, rgba(255, 165, 0, 0.7), rgba(255, 0, 0, 0.6), rgba(255, 255, 0, 0.4));
-        opacity: 0.3;
-        z-index: -1;
-        animation: fireAnimation 1.5s infinite alternate;
-    }
-
-    /* Animação para o efeito de fogo */
-    @keyframes fireAnimation {
-        0% {
-            transform: scale(1) rotate(0deg);
-            opacity: 0.3;
-        }
-        25% {
-            transform: scale(1.1) rotate(5deg);
-            opacity: 0.5;
-        }
-        50% {
-            transform: scale(1) rotate(-5deg);
-            opacity: 0.3;
-        }
-        75% {
-            transform: scale(1.1) rotate(5deg);
-            opacity: 0.5;
-        }
-        100% {
-            transform: scale(1) rotate(0deg);
-            opacity: 0.3;
-        }
-    }
     #cert img {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border-radius: 8px;
-        }
-
-        #cert img:hover {
-        transform: scale(1.1);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        z-index: 2;
-        }
-
-    .emoji {
-        content: \01f1e7\01f1f7;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 8px;
     }
 
+    #cert img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      main {
+        padding: 0;
+      }
+
+      .sidebar {
+        margin-bottom: 2rem;
+      }
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 20px;
+      justify-content: center;
+    }
+
+    .tooltip-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip-container img {
+      width: 48px;
+      height: 48px;
+    }
+
+    .tooltip-text {
+      visibility: hidden;
+      opacity: 0;
+      background-color: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      text-align: center;
+      padding: 6px 10px;
+      border-radius: 4px;
+      position: absolute;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      z-index: 10;
+      transition: opacity 0.3s ease;
+      font-size: 13px;
+    }
+
+    .tooltip-container:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+    .project-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .project-item {
+      flex: 0 0 150px;
+      text-align: center;
+    }
   </style>
-  
 </head>
 <body>
   <header>
     <h1>José Silva</h1>
-    <h2>DevOps Engineer | Instructor</h2>
+    <h2>DevOps Engineer | Cloud Instructor</h2>
     <div class="language-switcher">
-      <span>Language/Idioma:</span>
-      <a href="index.html"><img src="img/bra.png" width="25"></a>
+      <span>Change Language to:</span>
+      <a href="index.html"><img src="img/bra.png" alt="Brazilian Portuguese"></a>
     </div>
   </header>
   <div class="container">
     <aside class="sidebar">
-      <img src="img/perfil.png" alt="Foto de perfil">
-      <a href="https://www.linkedin.com/in/seu-perfil" target="_blank">LinkedIn</a>
+      <img src="img/Eu02.png" alt="Foto de perfil">
+      <a href="https://www.linkedin.com/in/jgsiqueiraa/" target="_blank">LinkedIn</a>
       <a href="cv-jose.pdf" download>Download resume</a>
     </aside>
     <main>
@@ -365,84 +327,225 @@
         <img class="header-image" src="img/banner-en.png" alt="Banner DevOps">
       </section>
       <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-carousel-wrapper">
-          <button class="carousel-button carousel-left" onclick="scrollCarousel(-1)">&#60;</button>
-          <div class="project-container" id="projectCarousel">
-            <!-- Exemplo de 6 projetos (adicione mais conforme necessário) -->
-            <div class="project-item">
-              <a href="https://github.com/seuusuario/projeto1" target="_blank">
-                <img class="project-image" src="img/athenas.png" alt="Projeto 1">
-              </a>
+        <h2>Mainly Projects</h2>
+        <div class="carousel-wrapper">
+          <!-- <button class="carousel-btn left" onclick="scrollCarousel(-1)">&#10094;</button> -->
+          
+          <div class="carousel" id="projectCarousel">
+            <!-- Replique esse bloco para adicionar mais projetos -->
+            <div class="carousel-item">
+              <img src="img/project/HPA.png" alt="Projeto 1">
+              <p>Hyundai HPA</p><br>
+              <span class="promo-box">EKS HPA</span>
             </div>
-            <div class="project-item">
-              <a href="https://github.com/seuusuario/projeto2" target="_blank">
-                <img class="project-image" src="img/HPA.png" alt="Projeto 2">
-              </a>
+            <div class="carousel-item">
+              <img src="img/project/MinikubeOfFrying.png" alt="Projeto 2">
+              <p>Minikube of Frying</p><br>
+              <span class="promo-box">Fully Minikube</span>
             </div>
-            <div class="project-item">
-              <a href="https://github.com/seuusuario/projeto3" target="_blank">
-                <img class="project-image" src="img/MinikubeOfFrying.png" alt="Projeto 3">
-              </a>
+            <div class="carousel-item">
+              <img src="img/project/BannerJamByOwn.png" alt="Projeto 3">
+              <p>AWS JamByOwn</p><br>
+              <span class="promo-box">AWS Challanges with Terraform</span>
             </div>
-            <div class="project-item">
-              <a href="https://github.com/seuusuario/projeto4" target="_blank">
-                <img class="project-image" src="img/athenas.png" alt="Projeto 4">
-              </a>
+            <div class="carousel-item">
+              <img src="img/project/CodeMagicCICD.png" alt="Projeto 4">
+              <p>CodeMagic Mobile CI/CD</p><br>
+              <span class="promo-box">Deploying mobile apps</span>
             </div>
-            <div class="project-item">
-              <a href="https://github.com/seuusuario/projeto5" target="_blank">
-                <img class="project-image" src="img/HPA.png" alt="Projeto 5">
-              </a>
+            <div class="carousel-item">
+              <img src="img/project/embreve.png" alt="Projeto 5">
+              <p>Coming Soon</p>
             </div>
-            <div class="project-item">
-              <a href="https://github.com/seuusuario/projeto6" target="_blank">
-                <img class="project-image" src="img/MinikubeOfFrying.png" alt="Projeto 6">
-              </a>
-            </div>
+            <!-- Adicione mais blocos conforme necessário -->
           </div>
-          <button class="carousel-button carousel-right" onclick="scrollCarousel(1)">&#62;</button>
+      
+          <!-- <button class="carousel-btn right" onclick="scrollCarousel(1)">&#10095;</button> -->
+        </div>
+      </section>
+      <section id="Tools">
+        <h2>Experienced with</h2>
+        <div class="skills-grid">
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=jenkins" alt="Jenkins">
+            <div class="tooltip-text">Jenkins</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=bitbucket" alt="Bitbucket">
+            <div class="tooltip-text">Bitbucket</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=linux" alt="Linux">
+            <div class="tooltip-text">Linux</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=bash" alt="Bash">
+            <div class="tooltip-text">Bash</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=gcp" alt="Google Cloud">
+            <div class="tooltip-text">Google Cloud</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=github" alt="GitHub">
+            <div class="tooltip-text">GitHub</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=aws" alt="AWS">
+            <div class="tooltip-text">AWS</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=mysql" alt="MySQL">
+            <div class="tooltip-text">MySQL</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=docker" alt="Docker">
+            <div class="tooltip-text">Docker</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=terraform" alt="Terraform">
+            <div class="tooltip-text">Terraform</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=kubernetes" alt="Kubernetes">
+            <div class="tooltip-text">Kubernetes</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=vscode" alt="VSCode">
+            <div class="tooltip-text">VSCode</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=windows" alt="Windows">
+            <div class="tooltip-text">Windows</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=prometheus" alt="Prometheus">
+            <div class="tooltip-text">Prometheus</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=grafana" alt="Grafana">
+            <div class="tooltip-text">Grafana</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=git" alt="Git">
+            <div class="tooltip-text">Git</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=nginx" alt="Nginx">
+            <div class="tooltip-text">Nginx</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=flask" alt="Flask">
+            <div class="tooltip-text">Flask</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=python" alt="Python">
+            <div class="tooltip-text">Python</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=azure" alt="Azure">
+            <div class="tooltip-text">Azure</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=ansible" alt="Ansible">
+            <div class="tooltip-text">Ansible</div>
+          </div>
+          <div class="tooltip-container">
+            <img src="https://skillicons.dev/icons?i=postman" alt="Postman">
+            <div class="tooltip-text">Postman</div>
+          </div>
+          <div align="center">
+            <img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=Jira&logoColor=whit" alt="Jira">
+            <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white" alt="Slack">
+            <img src="https://img.shields.io/badge/Argo%20CD-1e0b3e?style=for-the-badge&logo=argo&logoColor=#d16044" alt="ArgoCD">
+            <img src="https://img.shields.io/badge/Vagrant-1868F2?style=for-the-badge&logo=Vagrant&logoColor=white" alt="Vangrant">
+            <img src="https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white" alt="Google Play Store">
+            <img src="https://img.shields.io/badge/Snyk-4C4A73?style=for-the-badge&logo=snyk&logoColor=white" alt="Snyk">
+            <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=black" alt="Oracle Cloud">
+            <img src="https://img.shields.io/badge/Azure_DevOps-0078D7?style=for-the-badge&logo=azure-devops&logoColor=white" alt="Azure DevOps">
+            <img src="https://img.shields.io/badge/Sonarqube-5190cf?style=for-the-badge&logo=sonarqube&logoColor=white" alt="Sonarqube">
+          </div>
         </div>
       </section>
       <section id="experience">
-        <h2>About me</h2>
-        <p>I have been working with DevOps and Cloud Computing for almost 3 years, focusing on automation, infrastructure as code and good practices in CI/CD, security and observability. I was national runner-up in WorldSkills (Cloud AWS modality), representing the state of São Paulo. I provided technical training for companies and trained professionals in DevOps, Cloud and Monitoring. Conducted complex migrations to Google Cloud, applied optimizations that generated cost savings of more than R$30 thousand and implemented end-to-end pipelines with Terraform, Docker, Kubernetes, ArgoCD, Jenkins, and native CI/CD on AWS, GCP, and Azure.
-          I have AWS, Google Cloud and GitOps certifications.</p>
+        <h2>Resumo</h2>
+        <p>I have been working with DevOps and Cloud Computing for nearly three years, focusing on automation, Infrastructure as Code, and best practices in CI/CD, security, and observability. I was the national runner-up in the WorldSkills competition (Cloud AWS category), representing the state of São Paulo. I have delivered technical training for companies and trained professionals in DevOps, Cloud, and Monitoring. I led complex migrations to Google Cloud, implemented optimizations that resulted in cost savings of over R$30,000, and built complete pipelines using Terraform, Docker, Kubernetes, ArgoCD, Jenkins, and native CI/CD across AWS, GCP, and Azure. I hold certifications from AWS, Google Cloud, and GitOps.</p>
       </section>
       <section id="blog">
-        <h2>Recommended by me</h2>
+        <h2>Recommended by Me!</h2>
         <ul>
-            <li class="blog-item">
-                <a href="blog/tutorial-docker.html">🔥DevOps Hands-On: Da Teoria à Prática</a>
-                <span class="promo-box">Most viewed</span>
-                <span class="promo-box">Portuguese Course</span>
-              </li>   
-          <li><a href="blog/gitops-com-argocd.html">🐦‍🔥GitOps with ArgoCD</a></li>
-          <li><a href="blog/monitoramento-com-prometheus-grafana.html">🐦‍🔥Monitoramento with Prometheus and Grafana</a></li>
+          <li>
+            <a href="blog/tutorial-docker.html">🔥DevOps Hands-On: Da Teoria à Prática</a>
+            <span class="promo-box">Most viewed</span>
+            <span class="promo-box">Course by me</span>
+          </li>
         </ul>
       </section>
+
       <section id="cert">
         <h2>Certifications</h2>
-        <div align="center">
-            <img src="https://templates.images.credential.net/16590181582433100721069374350922.png" width="100" hspace="10">
-            <img src="https://templates.images.credential.net/16590187933301617801540872729153.png" width="100">
-            <img src="https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png" width="100" hspace="10">
-            <img src="https://images.credly.com/size/340x340/images/e7bf6727-22cf-45d6-ad9c-76ab57c3f11b/image.png" width="100" hspace="10">
-            <img src="https://images.credly.com/size/340x340/images/6f4212c6-80e6-4819-833d-a652b0feaabb/blob" width="100">
+        <div class="project-container">
+          
+          <div class="project-item">
+            <img src="https://templates.images.credential.net/16590181582433100721069374350922.png" alt="Certificação AWS" width="150" height="150">
+            <p>Google Cloud Professional Cloud Architect</p>
+          </div>
+          <div class="project-item">
+            <img src="https://templates.images.credential.net/16590187933301617801540872729153.png" alt="Certificação GCP" width="150" height="150">
+            <p>Google Cloud Associate Cloud Engineer</p>
+          </div>
+          <div class="project-item">
+            <img src="https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png" alt="Certificação Linux" width="150" height="150">
+            <p>AWS Cloud Practitioner</p>
+          </div>
+          <div class="project-item">
+            <img src="https://images.credly.com/size/340x340/images/e7bf6727-22cf-45d6-ad9c-76ab57c3f11b/image.png" alt="Certificação GitOps" width="150" height="150">
+            <p>AWS Academy Verifed Educataor</p>
+          </div>
+          <div class="project-item">
+            <img src="https://images.credly.com/images/6f4212c6-80e6-4819-833d-a652b0feaabb/blob" alt="Certificação GitOps" width="150" height="150">
+            <p>GitOps Certified</p>
+          </div>
         </div>
       </section>
     </main>
   </div>
-
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    ScrollReveal().reveal('section', {
+      origin: 'bottom',
+      distance: '50px',
+      duration: 1000,
+      easing: 'ease-in-out',
+      interval: 200
+    });
+  
+    // Exemplo: Animação para imagens específicas
+    ScrollReveal().reveal('.carousel-item', {
+      origin: 'left',
+      distance: '100px',
+      duration: 1200,
+      easing: 'ease-in-out',
+      interval: 150
+    });
+  
+    ScrollReveal().reveal('.sidebar', {
+      origin: 'right',
+      distance: '80px',
+      duration: 1000
+    });
+  </script>
+  
   <script>
     function scrollCarousel(direction) {
-        const container = document.getElementById("projectCarousel");
-        const scrollAmount = 160; // largura + gap
-        container.scrollBy({
-        left: scrollAmount * direction,
-        behavior: "smooth"
-        });
+      const carousel = document.getElementById('projectCarousel');
+      const scrollAmount = 220; // Ajuste conforme largura dos itens
+      carousel.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+      });
     }
-  </script>
+  </script>  
 </body>
 </html>
+ 
